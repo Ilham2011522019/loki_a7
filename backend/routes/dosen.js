@@ -8,7 +8,6 @@ server.get('/dosen', (req, res) => {
     res.render("login3")
 })
 server.post('/loginDosen', controllers.auth.loginDosen)
-server.get('/dasbordDosen',VerifyToken, controllers.dosen.home)
 
 server.get('/semuaMatkul', VerifyToken, controllers.dosen.matkul)
 server.get('/lihatMatkul', controllers.RPS.lihatRPS)
