@@ -11330,7 +11330,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 }
 
 .content-body {
-  margin-left: 15.1875rem;
+  margin-left: auto;
   z-index: 0;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1350px) {
