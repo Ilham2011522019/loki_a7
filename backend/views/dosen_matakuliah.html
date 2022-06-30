@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Mata Kuliah</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Logo_Unand.svg/1200px-Logo_Unand.svg.png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/matakuliah.css">
+    <link rel="stylesheet" href="css/popup.css">
+    
+  </head>
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar">
+				<div class="p-4 pt-5">
+		  		<a href="#" class="img logo rounded-circle mb-5" style="background-image: url(images/user.jpg);"></a>
+          <h6 style="margin-left: 100px; margin-top: -1cm;">Dosen</h6>
+	        <ul class="list-unstyled components mb-5">
+            <li>
+              <a rel="icon" href="dosen_dashbord.html"><img src="images/icon-home.jpg" style="width:30px;height:30px;">Dashboard</a>
+            </li>
+            <li>
+              <a rel="icon" href="dosen_matakuliah.html"><img src="images/icon_course.jpg" style="width:30px;height:30px;">Mata Kuliah</a>
+            </li>
+	          <li>
+              <a class="popuplogout" rel="icon" href="#popuplogout"><img src="images/icon_logout.jpg" style="width:30px;height:30px;">Logout</a>
+	          </li>
+	        </ul>
+	       
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+          </div>
+        </nav>
+        <h2 class="mb-6">
+            Mata Kuliah
+        </h2>
+        <h3 class="mb-4">
+          Nama Dosen : xxx<br>
+          NIP        : xxx<br>
+          Semester   : xxx<br>
+        </h3>
+        <table class="table" border = "1" cellpadding="10">
+          <tr class="table-detail">
+                <td><b> No </b></td>
+              <td><b> Kode Matkul </b></td>
+              <td><b> Kuliah </b></td>
+              <td><b> Mata Kuliah </b></td>
+              <td><b> Detail </b></td>
+          </tr>
+          <tr class="table-detail">
+              <td>1</td>
+              <td>JSI62121</td>
+              <td>Analisis dan Visualisasi Data</td>
+              <td>3</td>
+              <td>
+                <a href="dosen_cpmk.html"><img src="https://icon-library.com/images/icon-detail/icon-detail-1.jpg"
+                style="width:30px;height:30px;"></a>
+              </td>
+          </tr>
+          <tr class="table-detail">
+            <td>2</td>
+            <td>JSI62125</td>
+            <td>Pemograman Web</td>
+            <td>3</td>
+            <td>
+              <img src="https://icon-library.com/images/icon-detail/icon-detail-1.jpg"
+              style="width:30px;height:30px;">
+            </td>
+        </tr>
+      </table>
+      </div>
+      <! -- pop up Logout -->
+      <div id="popuplogout">
+      <div class="windowlogout">
+        <a href="login3.html" class="close-buttonoutiya">Iya</a>
+        <a href="#" class="close-buttonouttidak">Tidak</a>
+          <h2>LOG OUT</h2>
+      </div>
+      </div>
+		</div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
