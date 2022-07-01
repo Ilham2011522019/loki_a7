@@ -22,8 +22,8 @@
         <img src="https://lp3m.unand.ac.id/webpanel/todakimage/logo.png" alt="">
         <!-- <img src="https://id.images.search.yahoo.com/yhs/search;_ylt=AwrxguoFI45iQX4AMyT3RQx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3BpdnM-?p=logo+unand&type=fc_ADDA49F0A8D_s58_g_e_d021922_n9998_c24&param1=7&param2=eJwtjEsKgzAQQK8ySwUZJzFGg8foqoiLVFMbjEbUYunpO0J37735jH5om%2B52F0RKGtVm3cJujKkZrxFJYaRk6VnkteBXJlFLVFgRivpqo4sc%2BVfWvS3THL8%2BBJuXSJCcfhniucNygCCkBjho1cBHqxTsugZ3usfkj7wsKiw0JNPrmEMGwU8ORtdPMYX%2BtcXZ5YIEEipTCtQV7PZpN%2F8%2F%2BwGW%2FDuH&hsimp=yhs-2461&hspart=fc&ei=UTF-8&fr=yhs-fc-2461#id=13&iurl=https%3A%2F%2Flp3m.unand.ac.id%2Fwebpanel%2Ftodakimage%2Flogo.png&action=click" alt=""> -->
     </div>
-    <a href="/login" class="btn btn-success" style="margin-left: 31cm; margin-top: -100px;">Log In</a>
-    <div class="wrapper">
+    <a href="/login" class="btn" style="margin-left: 31cm; margin-top: -100px; background-color: #00AA13; color: white;">Log In</a>
+    <div class="wrapper" style="background-color: #91ca6b;">
         <h1 style="margin-top: -30px;">SELAMAT DATANG DI RPS UNIVERSITAS ANDALAS</h1>
         <h5 style="margin-top: -10px; text-align: center;">Website Akademik Sistem Informasi Universitas Andalas</h5>
 
@@ -33,10 +33,10 @@
             <h3>Rencana Pembelajaran Semester</h3>
             <hr>
             <div class="card-body">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Masukkan Nama/Kode Mata Kuliah"
+                <form action="/cari" method="" class="d-flex" role="search">
+                    <input name="cari" class="form-control me-2" type="search" placeholder="Masukkan Nama/Kode Mata Kuliah"
                         aria-label="Search">
-                    <button class="btn btn-success" type="submit">Cari</button>
+                    <button class="btn" type="submit" style="background-color: #00AA13; color:white ">Cari</button>
                 </form>
                 <br>
                 <form action="/lihatRPS" method="GET">

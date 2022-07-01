@@ -9,15 +9,15 @@
     <script src="https://kit.fontawesome.com/9c1321c239.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <nav class="navbar navbar-expand navbar-light bg-light shadow-md fixed-top">
+    <nav class="navbar navbar-expand navbar-light shadow-md fixed-top" style="background-color: #00AA13;">
       <div class="container-fluid">
-        <a class="navbar-brand" style="margin-left: 1%; color: black;">PORTAL DOSEN</b></a>
-        <a class="navbar-brand" style="margin-left: 50%; color: black;">UNIVERSITAS ANDALAS</b></a>
+        <a class="navbar-brand" style="margin-left: 1%; color: white;">PORTAL DOSEN</b></a>
+        <a class="navbar-brand" style="margin-left: 50%; color: white;">UNIVERSITAS ANDALAS</b></a>
       </div>
   </nav>
     <nav>
           <div class="row no-gutters mt-5">
-            <div class="col-md-2 bg-light mt-2 pr-3 pt-4">
+            <div class="col-md-2 mt-2 pr-3 pt-4" style="background-color: #91ca6b;">
               <ul class="nav flex-column ml-3 mb-5">
                   <div class="mt-1 mb-2 d-block mx-auto">
                   </div>
@@ -30,7 +30,7 @@
                       <a class="nav-link text-black" href="/login">Log Out</a><hr>
                   </li>
             </div>
-            <div class="col-md-10 p-4 pt-4" style="background-color: #9fbe8b;">
+            <div class="col-md-10 p-4 pt-4" style="background-color: #E9EFC0;">
                 <h3>Penilaian <%= name %></h3><hr>
                 <div class="card shadow mb-4">
                   <div class="card-body">
@@ -50,14 +50,14 @@
                             <td class="text-center" scope="row"><%= i+1 %></td>
                             <td><%= K.name %></td>
                             <td><%= K.percentage %></td>
-                            <td class="text-center"><a href="/hapusKomponen/<%= K.id %>/<%= id %>/<%= name %>"  class="btn btn-warning mb-3"><i class="fa-solid fa-trash bg-warning text-black rounded" data-toggle="tooltip" title="delete" ></i></a></td>
-                            <td class="text-center"><a href="/editKomponen/<%= K.id %>/<%= id %>/<%= name %>" class="btn btn-warning mb-3"><i class="fas fa-edit bg-warning text-black rounded" data-toggle="tooltip" title="Edit"></a></i></td>  
+                            <td class="text-center"><a href="/hapusKomponen/<%= K.id %>/<%= id %>/<%= name %>"  class="btn mb-3" style="background-color: #00AA13; color: #fff;"><i class="fa-solid fa-trash text-white rounded" data-toggle="tooltip" title="delete" ></i></a></td>
+                            <td class="text-center"><a href="/editKomponen/<%= K.id %>/<%= id %>/<%= name %>" class="btn mb-3" style="background-color: #00AA13; color: #fff;"><i class="fas fa-edit text-white rounded" data-toggle="tooltip" title="Edit"></a></i></td>  
                         </tr>
                         <% } ) %>
                     </tbody>
                 </table><br>
-                <a href="/tambahKomponen/<%= id %>/<%= name %>" class="btn" style="background-color: #28a745; color: #fff;">Tambah Penilaian</a>
-                <a href="/semuaMatkul" class="btn" type="button" style="background-color: #28a745; color: #fff;">Kembali</a>
+                <a href="/tambahKomponen/<%= id %>/<%= name %>" class="btn" style="background-color: #00AA13; color: #fff;">Tambah Penilaian</a>
+                <a href="/semuaMatkul" class="btn" type="button" style="background-color: #00AA13; color: #fff;">Kembali</a>
               </div>
             </div>
           </div>

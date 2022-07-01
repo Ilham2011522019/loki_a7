@@ -65,7 +65,7 @@ controllers.hlmEditCPMK = async (req, res) => {
             id : req.params.idEdit
         }
     })
-    res.render("editCPMK", {CPMK, idEdit, id, name, nama, NIP})
+    res.render("dosen_editcpmk", {CPMK, idEdit, id, name, nama, NIP})
 }
 
 controllers.tambahCPMK = async (req, res) => {
