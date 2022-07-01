@@ -1,193 +1,68 @@
- <!doctype html>
-<html lang="en"> 
+<!doctype html>
+<html lang="en">
   <head>
-  	<title>Penilaian</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Logo_Unand.svg/1200px-Logo_Unand.svg.png">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/matakuliah.css">
-  <link rel="stylesheet" href="css/popup.css">
+    <title>Penilaian</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/9c1321c239.js" crossorigin="anonymous"></script>
   </head>
   <body>
-		
-		<div class="wrapper d-flex align-items-stretch">
-			<nav id="sidebar">
-				<div class="p-4 pt-5">
-		  		<a href="#" class="img logo rounded-circle mb-5" style="background-image: url(images/user.jpg);"></a>
-          <h6 style="margin-left: 100px; margin-top: -1cm;">Dosen</h6>
-	        <ul class="list-unstyled components mb-5">
-            <li>
-              <a rel="icon" href="dosen_dashbord.html"><img src="images/icon-home.jpg" style="width:30px;height:30px;">Dashboard</a>
-            </li>
-            <li>
-              <a rel="icon" href="dosen_matakuliah.html"><img src="images/icon_course.jpg" style="width:30px;height:30px;">Mata Kuliah</a>
-            </li>
-	        <li>
-              <a class="popuplogout" rel="icon" href="#popuplogout"><img src="images/icon_logout.jpg" style="width:30px;height:30px;">Logout</a>
-	        </li>
-	        </ul>
-
-	       
-    	</nav>
-
-        <!-- Page Content  -->
-      <div id="content" class="p-4 p-md-5">
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container-fluid">
-
-            <button type="button" id="sidebarCollapse" class="btn btn-primary">
-              <i class="fa fa-bars"></i>
-              <span class="sr-only">Toggle Menu</span>
-            </button>
-            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="dosen_cpmk.html">CPMK</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="dosen_referensi.html">Referensi</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="dosen_penilaian.html">Penilaian</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="dosen_pertemuanmingguan.html">Pertemuan Mingguan</a>
-                </li>
-              </ul>
+    <nav class="navbar navbar-expand navbar-light bg-light shadow-md fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" style="margin-left: 1%; color: black;">PORTAL DOSEN</b></a>
+        <a class="navbar-brand" style="margin-left: 50%; color: black;">UNIVERSITAS ANDALAS</b></a>
+      </div>
+  </nav>
+    <nav>
+          <div class="row no-gutters mt-5">
+            <div class="col-md-2 bg-light mt-2 pr-3 pt-4">
+              <ul class="nav flex-column ml-3 mb-5">
+                  <div class="mt-1 mb-2 d-block mx-auto">
+                  </div>
+                  <h6 class="text-center fs-6"><%= nama %></h6>
+                  <h6 class="text-center fs-6">NIP <%= NIP %></h6><hr>
+                  <li class="nav-item">
+                    <a class="nav-link text-black" href="/semuaMatkul">Mata Kuliah</a><hr>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link text-black" href="/login">Log Out</a><hr>
+                  </li>
+            </div>
+            <div class="col-md-10 p-4 pt-4" style="background-color: #9fbe8b;">
+                <h3>Penilaian <%= name %></h3><hr>
+                <div class="card shadow mb-4">
+                  <div class="card-body">
+                  <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-center" scope="col">No.</th>
+                            <th class="text-center" scope="col">Nama Komponen</th>
+                            <th class="text-center" scope="col">Persentase</th>
+                            <th class="text-center" scope="col">Hapus</th>
+                            <th class="text-center" scope="col">Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% komponen.forEach((K, i) => { %>
+                        <tr>
+                            <td class="text-center" scope="row"><%= i+1 %></td>
+                            <td><%= K.name %></td>
+                            <td><%= K.percentage %></td>
+                            <td class="text-center"><a href="/hapusKomponen/<%= K.id %>/<%= id %>/<%= name %>"  class="btn btn-warning mb-3"><i class="fa-solid fa-trash bg-warning text-black rounded" data-toggle="tooltip" title="delete" ></i></a></td>
+                            <td class="text-center"><a href="/editKomponen/<%= K.id %>/<%= id %>/<%= name %>" class="btn btn-warning mb-3"><i class="fas fa-edit bg-warning text-black rounded" data-toggle="tooltip" title="Edit"></a></i></td>  
+                        </tr>
+                        <% } ) %>
+                    </tbody>
+                </table><br>
+                <a href="/tambahKomponen/<%= id %>/<%= name %>" class="btn">Tambah Penilaian</a>
+                <a href="/semuaMatkul" class="btn" type="button">Kembali</a>
+              </div>
             </div>
           </div>
-        </nav>
-        <h2 class="mb-6">
-            Penilaian<br>
-        </h2>
-            <h3 class="mb-4">
-                Kode Matkul    : JSI62121<br>
-                Nama Matkul    : Analisis dan Visualisasi Data<br>
-                Dosen Pengampu : Ricky Akbar, M. Kom.<br>
-                Jumlah SKS     : 3<br>
-            </h3>
-            <table border ="1" cellpadding="10" width="90%">
-                <tr class="table-detail">
-                      <td width="30px"><b> No </b></td>
-                      <td width="200px"><b> Penilaian </b></td>
-                      <td width="200px"><b> Bobot </b></td>
-                    <td width="100px"><b> Aksi </b></td>
-                </tr>
-                <tr class="table-detail-penilaian">
-                    <td class="table-detail"> 1.</td>
-                    <td>Kehadiran</td>
-                    <td>15%</td>
-                    <td class="table-detail">
-                        <a class="popupeditnilai" rel="icon" href="#popupeditnilai"><img src="images/icon-edit.jpg" style="width:30px;height:30px;"></a>
-                        <a class="popuphapus" rel="icon" href="#popuphapus"><img src="images/icon-delete.jpg" style="width:35px;height: 35px;"></a>
-                    </td>
-                </tr>
-                <tr class="table-detail-penilaian">
-                    <td class="table-detail"> 2.</td>
-                    <td>Tugas</td>
-                    <td>20%</td>
-                    <td class="table-detail">
-                        <a class="popupeditnilai" rel="icon" href="#popupeditnilai"><img src="images/icon-edit.jpg" style="width:30px;height:30px;"></a>
-                        <a class="popuphapus" rel="icon" href="#popuphapus"><img src="images/icon-delete.jpg" style="width:35px;height: 35px;"></a>
-                    </td>
-                </tr>
-                <tr class="table-detail-penilaian">
-                    <td class="table-detail"> 3.</td>
-                    <td>UTS</td>
-                    <td>30%</td>
-                    <td class="table-detail">
-                        <a class="popupeditnilai" rel="icon" href="#popupeditnilai"><img src="images/icon-edit.jpg" style="width:30px;height:30px;"></a>
-                        <a class="popuphapus" rel="icon" href="#popuphapus"><img src="images/icon-delete.jpg" style="width:35px;height: 35px;"></a>
-                    </td>
-                </tr>
-                <tr class="table-detail-penilaian">
-                    <td class="table-detail"> 4.</td>
-                    <td>UAS</td>
-                    <td>35%</td>
-                    <td class="table-detail">
-                        <a class="popupeditnilai" rel="icon" href="#popupeditnilai"><img src="images/icon-edit.jpg" style="width:30px;height:30px;"></a>
-                        <a class="popuphapus" rel="icon" href="#popuphapus"><img src="images/icon-delete.jpg" style="width:35px;height: 35px;"></a>
-                    </td>
-                </tr>
-            </table>
-            <td>
-                <a class="popupaddnilai" rel="icon" href="#popupaddnilai"><img src="images/icon-tambah.jpg" style="width:30px;height:30px;margin-top: 2%;margin-left: 85%;"></a>
-            </td>
-            <div id="button"><a href="#popupsimpan">Simpan</a></div>
-            <div id="popupsimpan">
-              <div class="window">
-                  <a href="#" class="close-button">Close</a>
-                  <h2>Data Tersimpan</h2>
-              </div>
-            </div>
-             
-              <! -- pop up hapus -->
-              <div id="popuphapus">
-                <div class="windowhapus">
-                    <a href="#popupsimpanhapus" class="close-buttoniya">Iya</a>
-                    <a href="#" class="close-buttontidak">Tidak</a>
-                    <h2>Hapus Penilaian</h2>
-                </div>
-              </div>
-              <div id="popupsimpanhapus">
-                <div class="windowsimpanhapus">
-                    <a href="#" class="close-button">Close</a>
-                    <h2>Data Berhasil di Hapus</h2>
-                </div>
-                </div>
-              
-                <! -- pop up edit -->
-                <div id="popupeditnilai">
-                  <div class="windoweditnilai">
-                      <input class="input-nilai" type="text" placeholder="Penilaian">
-                      <input class="input-bobot" type="text" placeholder="Bobot">
-                      <a href="#popupsimpaneditnilai" class="close-buttoneditnilai">Update</a>
-                      <h2>Edit Penilaian</h2>
-                  </div>
-                </div>
-                <div id="popupsimpaneditnilai">
-                  <div class="windowsimpaneditnilai">
-                      <a href="#" class="close-button">Close</a>
-                      <h2>Data Berhasil di Rubah</h2>
-                  </div>
-                  </div>
-
-                  <! -- pop up tambah -->
-                  <div id="popupaddnilai">
-                    <div class="windowaddnilai">
-                        <input class="input-nilai" type="text" placeholder="Penilaian">
-                        <input class="input-bobot" type="text" placeholder="Bobot">
-                        <a href="#popupsimpanadd" class="close-buttonadd">Update</a>
-                        <h2>Tambah Penilaian</h2>
-                    </div>
-                  </div>
-                  <div id="popupsimpanadd">
-                    <div class="windowsimpanadd">
-                        <a href="#" class="close-button">Close</a>
-                        <h2>Data Berhasil di Tambah</h2>
-                    </div>
-                    </div>
-      </div>
-      <! -- pop up Logout -->
-      <div id="popuplogout">
-      <div class="windowlogout">
-        <a href="login3.html" class="close-buttonoutiya">Iya</a>
-        <a href="#" class="close-buttonouttidak">Tidak</a>
-          <h2>LOG OUT</h2>
-      </div>
-      </div>
-		</div>
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+        </div>
+    </nav>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </body>
 </html>
