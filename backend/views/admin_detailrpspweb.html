@@ -31,78 +31,26 @@
   <body>
 		
 		<div class="wrapper d-flex align-items-stretch">
-			<!-- <nav id="sidebar">
-				<div class="p-4 pt-5">
-		  		<a href="#" class="img logo rounded-circle mb-5" style="background-image: url(images/user.jpg);"></a>
-          <h6 style="margin-left: 100px; margin-top: -1cm;">Admin</h6>
-	        <ul class="list-unstyled components mb-5">
-            <li>
-              <a rel="icon" href="admin_halamanawal.html"><img src="images/icon-home.jpg" style="width:30px;height:30px;">Dashboard</a>
-            </li>
-            <li>
-              <a rel="icon" href="admin_dosenpengampu.html"><img src="images/icon-dosen.jpg" style="width:30px;height:30px;">Dosen Pengampu</a>
-            </li>
-	          <li>
-              <a rel="icon" href="admin_laporanrps.html"><img src="images/icon-laporan.jpg" style="width:25px;height:30px;">Laporan RPS</a>
-	          </li>
-	          <li>
-              <a class="popuplogout" rel="icon" href="#popuplogout"><img src="images/icon_logout.jpg" style="width:30px;height:30px;">Logout</a>
-	          </li>
-	        </ul>
-
-	       
-    	</nav> -->
-
-        <!-- Page Content  -->
-      <!-- <div id="content" class="p-4 p-md-5">
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container-fluid">
-
-            <button type="button" id="sidebarCollapse" class="btn btn-primary">
-              <i class="fa fa-bars"></i>
-              <span class="sr-only">Toggle Menu</span>
-            </button>
-            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars"></i>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="admin_cplcpmk.html">CPL CPMK</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="admin_listrps.html">List RPS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="admin_persentasemetode.html">Persentase Metode</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Cetak</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav> -->
+			
  <!--**********************************
             Content body start
         ***********************************-->
         <div >
-          <div class="content-body" id="list" >
+          <div class="content-body" id="" >
             <div class="container-fluid mt-6">
                 <div class="card-body">
-                  <h3 style="margin-top:10px; margin-left:10px;">Detail RPS</h3>
+                  <h3 style="margin-top:10px; margin-left:40%;" align-text="text-center">Detail RPS</h3>
                   <div class="row">
-                      <div class="col-12" style="margin-top:10px;margin-left: -10px;">
+                      <div class="col-12" id="" style="margin-top:10px;margin-left: -10px; >
                           <div class="card2 mb-4" style="border-radius: 10px;">
                             <div class="col-12">
-                              <div class="card mb-4" style="border-radius: 10px; width:98%; margin-top:10px">
+                              <div class="card mb-4"id="list" style="border-radius: 10px; width:98%; margin-top:10px">
                                   <div class="card-body" style="box-shadow: 0px 4px 4px 3px rgba(0, 0, 0, 0.25);border-radius: 10px;" align="center" >
                                   <img class="img" style="width:8%; margin:30px 30px;" src="https://lp3m.unand.ac.id/seminar/tsadmin/todakimage/logo.png"/>
                                   <h3>RPS Pemograman Web</h3>
                                   <br>
-                                  <table border="0" cellpadding="0" cellspacing="0" id="sheet0" class="sheet0 gridlines">
+                                  <form action="/lihatRPS" method="GET"></form>
+                                  <table border="1" cellpadding="0" cellspacing="0" id="sheet0" class="sheet0 gridlines">
                                       <col class="col0">
                                       <col class="col1">
                                       <col class="col2">
@@ -478,13 +426,23 @@
                                       </table>
                   
                                       <div class="col-12">
-                                          <a class="btn btn-list mt-4" align="left" style=" color: white; background-color:#353535; border:#353535 2px solid;" href="Daftar RPS.html" onclick="myPrint('sheet0')">Back</a>
-                                          <a class="btn btn-list mt-4" align="right" style="margin-left:30px; color: white; background-color:#353535; border:#353535 2px solid;" href="">Cetak</a>
+                                          <a class="btn btn-list mt-4" align="left" style=" color: white; background-color:#353535; border:#353535 2px solid;" href="beranda_awal.ejs" >Back</a>
+                                          <a class="btn btn-list mt-4" align="right" style="margin-left:30px; color: white; background-color:#353535; border:#353535 2px solid;" href="" onclick="myPrint('list')">Cetak</a>
                                       </div>
+                                      <script>
+                                        function myPrint(listrps){
+                                          var printdata = document.getElementById(listrps)
+                                          newwin = window.open("");
+                                          newwin.document.write(printdata.outerHTML);
+                                          newwin.print();
+                                          newwin.close();
+                                        }
+                                      
+                                      </script>
                               </div>
-                          </div>
-                          </div>
+                          </div> 
                       </div>
+                     
                   </div>
                 </div>
             </div>

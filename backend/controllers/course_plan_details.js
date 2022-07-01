@@ -60,7 +60,7 @@ controllers.detailPertemuan = async (req, res) => {
             course_plan_id : req.params.id
         }
     })
-    res.render("pertemuan", {pertemuan, name, id, nama, NIP})
+    res.render("dosen_pertmingguan", {pertemuan, name, id, nama, NIP})
 }
 
 controllers.hlmEditPertemuan = async (req, res) => {
@@ -80,7 +80,7 @@ controllers.hlmEditPertemuan = async (req, res) => {
             id : req.params.idEdit
         }
     })
-    res.render("editPertemuan", {pertemuan, idEdit, id, name, nama, NIP})
+    res.render("dosen_editpert", {pertemuan, idEdit, id, name, nama, NIP})
 }
 
 controllers.hlmTambahPertemuan = async (req, res) => {
@@ -93,7 +93,7 @@ controllers.hlmTambahPertemuan = async (req, res) => {
     const id_dosen = payload.id
     const nama = payload.nama
     const NIP = payload.NIP
-    res.render("tambahPertemuan", {id, nama, name, NIP})
+    res.render("dosen_tambahpert", {id, nama, name, NIP})
 }
 
 controllers.tambahPertemuan = async (req, res) => {
@@ -105,7 +105,6 @@ controllers.tambahPertemuan = async (req, res) => {
             week                : req.body.week,
             material            : req.body.material,
             method              : req.body.method,
-            student_experience  : req.body.student_experience,
         })
         res.status(200).redirect("/detailPertemuan/"+id+"/"+name)
     } catch (err) {

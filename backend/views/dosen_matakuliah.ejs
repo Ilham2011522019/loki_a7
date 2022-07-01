@@ -14,12 +14,12 @@
   <body>
     <nav class="navbar navbar-expand navbar-light bg-light shadow-md fixed-top">
       <div class="container-fluid">
-        <a class="navbar-brand" style="margin-left: 1%;">PORTAL DOSEN</b></a>
-        <a class="navbar-brand" style="margin-left: 50%;">UNIVERSITAS ANDALAS</b></a>
+        <a class="navbar-brand" style="margin-left: 1%; color: black;">PORTAL DOSEN</b></a>
+        <a class="navbar-brand" style="margin-left: 50%; color: black;">UNIVERSITAS ANDALAS</b></a>
       </div>
   </nav>    
   <nav>
-      <div class="row no-gutters mt-5">
+      <div class="row no-gutters mt-5" >
           <div class="col-md-2 bg-light mt-2 pr-3 pt-4">
             <ul class="nav flex-column ml-3 mb-5">
                 <div class="mt-1 mb-2 d-block mx-auto">
@@ -34,8 +34,8 @@
                 </li>
           </div>
         <!-- Page Content  -->
-        <div class="col-md-10 p-4 pt-4">
-          <h3><i class="fa-solid fa-list me-2"></i>RPS</h3><hr>
+        <div class="col-md-10 p-4 pt-4" style="background-color: #9fbe8b;">
+          <h3>RPS</h3><hr>
           <div class="card shadow mb-4">
             <div class="card-body">
             <table class="table table-striped table-bordered table-hover">
@@ -60,7 +60,7 @@
                       <td class="text-center"><%= R.course_plan.semester %></td> <!--semester-->
                       <td class="text-center">
                           <div class="dropdown">
-                          <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             Detail
                           </button>
                           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -71,12 +71,12 @@
                           </ul>
                         </div>
                       </td>
-                      <td class="text-center"><a href="" class="btn btn-warning"><i class="fa-solid fa-pen-to-square" data-toggle="tooltip" title="Edit"></i></a></td>
+                      <td class="text-center"><a href="" class="btn"><i class="fa-solid fa-pen-to-square" data-toggle="tooltip" title="Edit"></i></a></td>
                   </tr>
                 <% i++} ) %> <!--increment-->
               </tbody>
             </table><br>
-            <a href="/tambahRPS" class="btn btn-warning"><i class="fas fa-plus-square me-2"></i>Tambah RPS</a>
+            <a href="/tambahRPS" class="btn">Tambah RPS</a>
             </div>
           </div>
       </div>

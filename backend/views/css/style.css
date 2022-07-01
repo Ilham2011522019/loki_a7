@@ -101,6 +101,11 @@ h1, h2, h3, h4, h5, h6 {
   height: 40px;
   border:#353535 1px solid;
 }
+.btn-print{
+  border-radius: 8px;
+  color: #fff;
+
+}
   
 p {
   margin-top: 0;
