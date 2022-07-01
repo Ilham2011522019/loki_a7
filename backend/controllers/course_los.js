@@ -31,7 +31,7 @@ controllers.hlmTambahCPMK = async (req, res) => {
     const id_dosen = payload.id
     const nama = payload.nama
     const NIP = payload.NIP
-    res.render("tambahCPMK", {id, name, nama, NIP})
+    res.render("dosen_tambahcpmk", {id, name, nama, NIP})
 }
 
 controllers.hlmTambahCPLkeCPMK = async (req, res) => {

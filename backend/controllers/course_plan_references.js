@@ -12,7 +12,7 @@ controllers.hlmTambahRef = async (req, res) => {
     const id_dosen = payload.id
     const nama = payload.nama
     const NIP = payload.NIP
-    res.render("tambahRef", {id, name, nama, NIP})
+    res.render("dosen_tambahReferensi", {id, name, nama, NIP})
 }
 
 controllers.hlmEditRef = async (req, res) => {
@@ -32,7 +32,7 @@ controllers.hlmEditRef = async (req, res) => {
             id : req.params.idEdit
         }
     })
-    res.render("editReferensi", {ref, idEdit, id, name, nama, NIP})
+    res.render("dosen_editReferensi", {ref, idEdit, id, name, nama, NIP})
 }
 
 controllers.editRef = async (req, res) => {
@@ -80,7 +80,7 @@ controllers.DetailRef = async (req, res) => {
             course_plan_id : req.params.id
         }
     })
-    res.render("referensi", {ref, name, id, nama, NIP})
+    res.render("dosen_referensi", {ref, name, id, nama, NIP})
 }
 
 controllers.semuaRef = async (req, res) => {

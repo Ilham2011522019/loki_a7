@@ -11,7 +11,7 @@ controllers.hlmTambahRPS = async (req, res) => {
     const id = payload.id
     const nama = payload.nama
     const NIP = payload.NIP
-    res.render("tambahRPS", {nama, NIP})
+    res.render("dosen_tambahRPS", {nama, NIP})
 }
 
 controllers.hlmRevRPS = async (req, res) => {
@@ -38,7 +38,7 @@ controllers.tambahRPS = async (req, res) => {
             semester        : req.body.semester,
             description     : req.body.description
         })
-        res.status(200).redirect("/dasbordDosen")
+        res.status(200).redirect("/semuaMatkul")
     } catch (err) {
         console.log(err);
     }
