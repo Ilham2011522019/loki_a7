@@ -34,7 +34,6 @@
           
             <div class="col-md-10 p-4 pt-4" style="background-color: #E9EFC0;">
                 <h3>CPMK <%= name %></h3><hr>
-                <div class="container"></div>
                 <div class="card shadow mb-4">
                 <div class="card-body">
                   <form action="/tambahCPMK/<%= id %>/<%= name %>" method="POST">
@@ -54,14 +53,13 @@
                     </tr>
                   </thead> 
                   </table>
-                  <button type="submit" class="btn mb-3" style="background-color: #00AA13; color: #fff;">Simpan</button>
+                  <button type="submit" class="btn mb-3" style="margin-left: 83%; background-color: #00AA13; color: #fff;">Simpan</button>
                   <a href="/detailCPMK/<%=id%>/<%=name%>" class="btn mb-3" style="background-color: #00AA13; color: #fff;">Kembali</a>
-                  </div>
+                </form> 
+                </div>
                   </div>                  
                 </div>
-              </form>
             </div>
-        </div>
     </nav>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </body>
