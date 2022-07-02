@@ -85,7 +85,7 @@ controllers.tambahCPMK = async (req, res) => {
             name            : req.body.name,
             type            : 1,
             code            : "NULL",
-            parent_id       : req.params.id,
+            parent_id       : 0,
         })
         await models.course_lo_details.create({
             curriculum_lo_id    : req.body.curriculum_lo_id,
