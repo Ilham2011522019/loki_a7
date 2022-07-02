@@ -11,7 +11,7 @@ controllers.hlmTambahRPS = async (req, res) => {
     const id = payload.id
     const nama = payload.nama
     const NIP = payload.NIP
-    res.render("dosen_tambahrps", {nama, NIP})
+    res.render("dosen_tambahmatkul", {nama, NIP})
 }
 
 controllers.hlmRevRPS = async (req, res) => {
