@@ -34,6 +34,8 @@
         </div>
             <div id="content" class="col-md-10 p-4 pt-4" style="background-color: #E9EFC0;">
                 <h3>CPMK <%= name %></h3><hr>
+                <div class="card shadow mb-4">
+                <div class="card-body">
                 <table class="table table-striped table-bordered table-hover" style="background-color: #fff;">
                     <thead>
                         <tr>
@@ -54,8 +56,10 @@
                         <% } ) %>
                     </tbody>
                 </table><br>
-                <a  href = "/tambahCPMK/<%= id %>/<%= name %>" class="btn" style="background-color: #00AA13; color: #fff;"><i class="fas fa-plus-square me-2"></i>Tambah CPMK</a>
+                <a  href = "/tambahCPMK/<%= id %>/<%= name %>" class="btn" style="margin-left: 78%; background-color: #00AA13; color: #fff;">Tambah CPMK</a>
                 <a href="/semuaMatkul" class="btn btn-success" type="button" style="background-color: #00AA13; color: #fff;">Kembali</a>
+            </div>
+            </div>
             </div>
         </div>
     </nav>

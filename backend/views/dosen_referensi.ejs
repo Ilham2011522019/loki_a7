@@ -33,8 +33,8 @@
 
             <div class="col-md-10 p-4 pt-4" style="background-color: #E9EFC0;">
                 <h3>Referensi <%= name %></h3><hr>
-                <form >
-                    
+                <div class="card shadow mb-4">
+                  <div class="card-body">                    
                     <table class="table table-striped table-bordered table-hover" style="background-color: #fff;">
                         <thead>
                             <tr>
@@ -57,11 +57,11 @@
                             </tr>
                             <% } ) %>
                         </tbody>
-                    </table>
-                </form><br>
-                    <a href="/tambahRef/<%= id %>/<%= name %>" class="btn" style="background-color: #00AA13; color: #fff;"><i class="fas fa-plus-square me-2"></i>Tambah Referensi</a>
+                    </table><br>
+                    <a href="/tambahRef/<%= id %>/<%= name %>" class="btn" style="margin-left: 76%; background-color: #00AA13; color: #fff;">Tambah Referensi</a>
                     <a href="/semuaMatkul" class="btn" type="button" style="background-color: #00AA13; color: #fff;">Kembali</a>
-                
+                  </div>
+                </div>
             </div>
         </div>
     </nav>
