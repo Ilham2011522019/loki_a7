@@ -8,6 +8,8 @@ server.get('/admin', (req, res) => {
     res.render("login2")
 })
 server.post('/loginAdmin', controllers.auth.loginAdmin)
+// server.get('/RPS', cekLogin, controllers.admin.home)
+server.get('/homeAdmin', VerifyToken, controllers.admin.home)
 server.get('/homeAdmin', VerifyToken, controllers.admin.home)
 server.get('/detailAksesDosen/:id/:name', VerifyToken, controllers.admin.detailAksesDosen)
 server.get('/tambahAksesDosen/:id/:name', VerifyToken, controllers.admin.hlmTambahAksesDosen)
