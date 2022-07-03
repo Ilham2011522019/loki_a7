@@ -58,39 +58,36 @@
                     <div class="col-md-10 p-4 pt-4">
                         <h3><i class="fa-solid fa-universal-access me-2"></i>Hak Akses Dosen</h3><hr>
                         <div class="container">
-                            <div class="row">
-                                <div class="col-2"><h6>Kode Mata Kuliah</h6></div>
-                                <div class="col-2"><h6>: JSI62125</h6></div>
-                              </div>
-                            <div class="row">
-                              <div class="col-2"><h6>Nama Mata Kuliah</h6></div>
-                              <div class="col-3"><h6>: Pemrograman Web</h6></div>
-                            </div>
-                        </div><br>
-                        <div>
-                            <table class="table table-bordered table-success table-hover">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center" scope="col">ID</th>
-                                        <th class="text-center" scope="col">Nama Dosen</th>
-                                        <th class="text-center" scope="col">NIP</th>
-                                        <th class="text-center" scope="col">Telepon</th>
-                                        <th class="text-center" scope="col">Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-center" scope="row">2</td>
-                                        <td>Husnil Kamil, M.T.</td>
-                                        <td class="text-center">198201182008121002</td>
-                                        <td class="text-center">081363491004</td>
-                                        <td class="text-center">1</td>
-                                    </tr>
-                                </tbody>
-                            </table><br>
-                            <a href="/admin_tambahdosen" class="btn btn-warning"><i class="fas fa-plus-square me-2"></i>Tambah Dosen</a>
-                            <a href="admin_hak-akses-dosen.ejs" class="btn btn-success" type="button">Kembali</a>
-                        </div><br>
+                          <div class="row">
+                            <div class="col-2"><h6>Nama Mata Kuliah</h6></div>
+                            <div class="col-3"><h6>: <%= name %></h6></div>
+                          </div>
+                      </div><br>
+                      <div>
+                        <form action="/tambahAksesDosen/<%= idDosen %>/<%= id %>/<%= name %>" method="POST">
+                          <table class="table table-bordered table-success table-hover">
+                              <thead>
+                                  <tr>
+                                      <th scope="col">Nama</th>
+                                      <th class="text-center"><input value="<%= dosen.name %>" name="name" type="tambahrps" id="inputtambahrps" class="form-control" readonly></th>
+                                  </tr>
+                                  <tr>
+                                      <th scope="col">NIP</th>
+                                      <th class="text-center"><input value="<%= dosen.reg_id %>" name="reg_id" type="tambahrps" id="inputtambahrps" class="form-control" readonly></th>
+                                  </tr>
+                                  <tr>
+                                      <th scope="col">Telepon</th>
+                                      <th class="text-center"><input value="<%= dosen.phone %>" name="phone" type="tambahrps" id="inputtambahrps" class="form-control" readonly></th>
+                                  </tr>
+                              </thead>
+                          </table> 
+                              <button type="submit" class="btn btn-primary mb-3">Simpan</button>
+                              <a href="/tambahAksesDosen/<%=id%>/<%=name%>" type="" class="btn btn-secondary mb-3">Kembali</a>
+                          </div>
+                      </form>
+                      </div>
+                        
+                       
                     </div>
                 </div>
             </nav>
