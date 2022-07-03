@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser')
 
 const controllers = {}
 
-controllers.home = async(req, res) => {
+controllers.home = async(req, res) => { // SUDAH BISA
    const accessToken = req.cookies.accessToken 
     if (!accessToken)
         return res.status(200).json("tidak ada token")
@@ -21,7 +21,7 @@ controllers.home = async(req, res) => {
     // res.json({RPS})
 }
 
-controllers.detailAksesDosen = async (req, res) => {
+controllers.detailAksesDosen = async (req, res) => { // SUDAH BISA
     const id = req.params.id
     const name = req.params.name
     const accessToken = req.cookies.accessToken 
@@ -43,7 +43,7 @@ controllers.detailAksesDosen = async (req, res) => {
             model : models.lecturers
         }]
     })
-    res.render("aksesDosen1", {akses, id, nama, name, NIP})
+    res.render("admin_hak-akses-dosen", {akses, id, nama, name, NIP})
 }
 
 controllers.hlmTambahAksesDosen = async (req, res) => {
@@ -59,7 +59,7 @@ controllers.hlmTambahAksesDosen = async (req, res) => {
 
     const dosen = await models.lecturers.findAll({})
 
-    res.render("daftarDosen", {dosen, id, nama, name, NIP})
+    res.render("admin_tambah-dosen", {dosen, id, nama, name, NIP})
 }
 
 controllers.cekTambahAksesDosen = async (req, res) => {
@@ -133,7 +133,7 @@ controllers.semuaCPMKdanCPL = async (req, res) => {
     const RPS = await models.course_plans.findAll({
         atribute : ['rev', 'code', 'name', 'credit', 'semester']
     })
-    res.render("cpmk-cpl", {RPS, accessToken, nama, NIP})
+    res.render("admin_cpl-cpmk", {RPS, accessToken, nama, NIP})
 }
 
 controllers.detailCPMKdanCPL = async (req, res) => {
@@ -167,7 +167,7 @@ controllers.detailCPMKdanCPL = async (req, res) => {
         }
     })
     // res.json({CPL})
-    res.render("cpmk-cpl1", {CPL})
+    res.render("admin_cpl-cpmk", {CPL, accessToken, nama, NIP})
 }
 
 controllers.detailRPS = async (req, res) => {
