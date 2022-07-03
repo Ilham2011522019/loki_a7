@@ -14,7 +14,8 @@ server.get('/lihatMatkul', controllers.RPS.lihatRPS)
 server.get('/ubahRPS', CekDosen, controllers.RPS.lihatRPS)
 server.get('/tambahRPS', VerifyToken, controllers.RPS.hlmTambahRPS)
 server.post('/tambahRPS', controllers.RPS.tambahRPS)
-server.put('/revisiRPS', CekDosen, controllers.RPS.revisiRPS)
+server.get('/revisiRPS/:idEdit/:course_plan_id/:course_plan.name', VerifyToken, controllers.RPS.hlmRevisiRPS)
+server.post('/revisiRPS/:idEdit/:course_plan_id/:course_plan.name', VerifyToken, controllers.RPS.revisiRPS)
 
 server.get('/semuaRef', VerifyToken, controllers.course_plan_references.semuaRef) //ref kelar semua
 server.get('/detailRef/:id/:name', VerifyToken, controllers.course_plan_references.DetailRef) 
