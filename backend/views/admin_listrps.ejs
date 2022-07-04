@@ -27,6 +27,7 @@
                 <h6 class="text-center fs-6">NIP <%= NIP %></h6><hr>
           
           <li class="nav-item">
+<<<<<<< HEAD
             <a class="nav-link active text-black" aria-current="page" href="/homeAdmin">List RPS</a>
             <hr>
           </li>
@@ -36,6 +37,20 @@
           </li> 
           <li class="nav-item">
             <a class="nav-link text-black" href="/main_login">Log Out</a>
+=======
+            <a class="nav-link active text-black" aria-current="page" href="/homeAdmin"><i
+                class="fa-solid fa-list me-2"></i>List RPS</a>
+            <hr>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-black" href="/persentaseRPS"><i
+                class="fa-solid fa-chart-line me-2"></i>Persentase RPS</a>
+            <hr>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link text-black" href="/login"><i
+                class="fa-solid fa-arrow-right-from-bracket me-2"></i>Log Out</a>
+>>>>>>> ef7cd98f8c6b91b8e5de133445ddaa155e140927
             <hr>
           </li>
       </div>
@@ -66,12 +81,12 @@
                           <td class="text-center"><%= R.semester %></td>  
                           <td class="text-center"><%= R.rev %></td><!--sks-->
                           <td class="text-center"><a href="admin_detailrpspweb.html"><i
-                            class="fa-solid fa-eye bg-warning p-2 text-black rounded" data-toggle="tooltip"
+                            class="fa-solid fa-eye p-2 text-black rounded" data-toggle="tooltip"
                             title="Open" style="width :80px; color: #00AA13;"></i></a></td>
                      
                             <td class="text-center">
                               <div class="dropdown">
-                              <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                              <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #00AA13; color:white">
                                 Detail
                               </button>
                               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
