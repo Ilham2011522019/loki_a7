@@ -59,7 +59,7 @@ controllers.hlmTambahAksesDosen = async (req, res) => {
 
     const dosen = await models.lecturers.findAll({})
 
-    res.render("admin_tambahdosen", {dosen, id, nama, name, NIP})
+    res.render("admin_listdosen", {dosen, id, nama, name, NIP})
 }
 
 controllers.cekTambahAksesDosen = async (req, res) => {
@@ -79,7 +79,7 @@ controllers.cekTambahAksesDosen = async (req, res) => {
             id : idDosen
         }
     })
-    res.render("tambahDosen", {dosen, idDosen, id, nama, name, NIP})
+    res.render("admin_tambahdosen", {dosen, idDosen, id, nama, name, NIP})
 }
 
 controllers.tambahAksesDosen = async (req, res) => {
@@ -167,7 +167,7 @@ controllers.detailCPMKdanCPL = async (req, res) => {
         }
     })
     // res.json({CPL})
-    res.render("admin_cpl-cpmk", {CPL,CPMK, accessToken, nama,NIP})
+    res.render("admin_cetakpetacplcpmk", {CPL,CPMK, accessToken, nama,NIP})
 }
 
 controllers.detailRPS = async (req, res) => {
