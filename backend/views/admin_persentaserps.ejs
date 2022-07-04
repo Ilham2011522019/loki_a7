@@ -25,27 +25,17 @@
                 <h6 class="text-center fs-6">NIP <%= NIP %></h6><hr>
                 <hr>
           <li class="nav-item">
-            <a class="nav-link active text-black" aria-current="page" href="admin_listrps.ejs"><i
+            <a class="nav-link active text-black" aria-current="page" href="/homeAdmin"><i
                 class="fa-solid fa-list me-2"></i>List RPS</a>
             <hr>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-black" href="admin_hak-akses-dosen.ejs"><i
-                class="fa-solid fa-universal-access me-2"></i>Hak Akses Dosen</a>
-            <hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-black" href="admin_cpl-cpmk.ejs"><i
-                class="fa-solid fa-award me-2"></i></i>CPL-CPMK</a>
-            <hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-black" href="admin_persentaserps.ejs"><i
+            <a class="nav-link text-black" href="/persentaseRPS"><i
                 class="fa-solid fa-chart-line me-2"></i>Persentase RPS</a>
             <hr>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-black" href="main_login.ejs"><i
+            <a class="nav-link text-black" href="/login"><i
                 class="fa-solid fa-arrow-right-from-bracket me-2"></i>Log Out</a>
             <hr>
           </li>
@@ -67,10 +57,7 @@
                               <div class="col-3"><h6>: Genap</h6></div>
                             </div><br>
                       </div>
-                      <form class="d-flex" role="search">
-                          <input class="form-control me-2" type="search" placeholder="Masukkan Nama/Kode Mata Kuliah" aria-label="Search">
-                          <button class="btn btn-outline-dark" type="submit">Cari</button>
-                      </form><br>
+                      
                       <div class="row">
                         <div class="col-2"><h6>Mata Kuliah</h6></div>
                       </div><br>
@@ -87,19 +74,32 @@
         function drawChart() {
           var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
-          ['Project Based', 8],
-          ['Case Based Method', 2],
+          ['Project Based', 7],
+          ['Case Based Method', 3],
           
         ]);
         
           // Optional; add a title and set the width and height of the chart
-          var options = {'title':'Persentase RPS yang menggunakan metode Project Based/Case Based Method', 'width':550, 'height':400};
+          var options = {'title':'Persentase RPS yang menggunakan metode Project Based/Case Based Method dari seluruh Mata Kuliah', 'width':550, 'height':400};
         
           // Display the chart inside the <div> element with id="piechart"
           var chart = new google.visualization.PieChart(document.getElementById('piechart'));
           chart.draw(data, options);
         }
         </script>
+        <div class="col-12">
+          <a class="btn btn-list mt-4" align="right" style="color: white; background-color:#00AA13; border:#00AA13 2px solid;" href="" onclick="myPrint('piechart')">Cetak</a>
+      </div>
+      <script>
+        function myPrint(piechart){
+          var printdata = document.getElementById(piechart)
+          newwin = window.open("");
+          newwin.document.write(printdata.outerHTML);
+          newwin.print();
+          newwin.close();
+        }
+  
+      </script>
                 </div>
             </nav>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>         

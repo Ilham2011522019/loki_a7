@@ -28,27 +28,17 @@
                 <h6 class="text-center fs-6">NIP <%= NIP %></h6><hr>
           
           <li class="nav-item">
-            <a class="nav-link active text-black" aria-current="page" href="/admin_listrps"><i
+            <a class="nav-link active text-black" aria-current="page" href="/homeAdmin"><i
                 class="fa-solid fa-list me-2"></i>List RPS</a>
             <hr>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-black" href="/admin_hak-akses-dosen"><i
-                class="fa-solid fa-universal-access me-2"></i>Hak Akses Dosen</a>
-            <hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-black" href="/admin_cpl-cpmk"><i
-                class="fa-solid fa-award me-2"></i></i>CPL-CPMK</a>
-            <hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-black" href="/admin_persentaserps"><i
+            <a class="nav-link text-black" href="/persentaseRPS"><i
                 class="fa-solid fa-chart-line me-2"></i>Persentase RPS</a>
             <hr>
           </li> 
           <li class="nav-item">
-            <a class="nav-link text-black" href="/main_login"><i
+            <a class="nav-link text-black" href="/login"><i
                 class="fa-solid fa-arrow-right-from-bracket me-2"></i>Log Out</a>
             <hr>
           </li>
@@ -103,12 +93,12 @@
                           <td class="text-center"><%= R.semester %></td>  
                           <td class="text-center"><%= R.rev %></td><!--sks-->
                           <td class="text-center"><a href="admin_detailrpspweb.html"><i
-                            class="fa-solid fa-eye bg-warning p-2 text-black rounded" data-toggle="tooltip"
+                            class="fa-solid fa-eye p-2 text-black rounded" data-toggle="tooltip"
                             title="Open" style="width :80px; color: #00AA13;"></i></a></td>
                      
                             <td class="text-center">
                               <div class="dropdown">
-                              <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                              <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #00AA13; color:white">
                                 Detail
                               </button>
                               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">

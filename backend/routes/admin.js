@@ -23,4 +23,6 @@ server.get('/semuaAksesDosen', VerifyToken, controllers.admin.semuaAksesDosen)
 
 server.get('/detailRPS/:id/:name', VerifyToken, controllers.admin.detailRPS)
 
+server.get('/persentaseRPS', VerifyToken, controllers.admin.persentaseRPS)
+
 module.exports = server
