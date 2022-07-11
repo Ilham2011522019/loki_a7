@@ -1,4 +1,3 @@
-
 const database = require('./config/koneksi.js')
 const bodyParser = require("body-parser");
 const express = require('express')
@@ -14,10 +13,10 @@ app.use(express.urlencoded({extended : true}))
 app.use(cookieParser())
 
 database.authenticate()
-  .then(() => {
+.then(() => {
     console.log('Berhasil terhubung database');
   })
-  .catch(err => {
+.catch(err => {
     console.error(`Gagal terhubung : ${err}`);
   });
 
@@ -33,5 +32,5 @@ app.use('/', server.user)
 
 app.listen(port, () =>
 {
-    console.log(`Server sudah berjalan di port ${port}`)
+  console.log(`Server sudah berjalan di port ${port}`)
 })

@@ -1,4 +1,3 @@
-//RPS
 'use strict'
 const { Sequelize, DataTypes, err } = require('sequelize');
 const db = require('../config/koneksi.js')
@@ -48,12 +47,9 @@ var course_plans = db.define('course_plans', {
     created_by      : Sequelize.BIGINT,
     validated_by    : Sequelize.BIGINT
     
-    // created_at :Sequelize.DATE,
-    // updated_at : Sequelize.DATE
 },{
     freezeTableName : true,
     timestamps      : false
 })
 
-// user.removeAttribute('updatedAt', 'createdAt')
 module.exports = course_plans

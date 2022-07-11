@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Logo_Unand.svg/1200px-Logo_Unand.svg.png">
+
     <title>Tambah Referensi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/9c1321c239.js" crossorigin="anonymous"></script>
@@ -14,7 +16,6 @@
             <a class="navbar-brand" style="margin-left: 50%; color: white;">UNIVERSITAS ANDALAS</b></a>
         </div>
     </nav>
-
     <nav>
         <div class="row no-gutters mt-5">
             <div class="col-md-2 mt-2 pr-3 pt-4" style="background-color: #91ca6b;">
@@ -28,7 +29,6 @@
                           <a class="nav-link text-black" href="/login">Log Out</a><hr>
                     </li>
             </div>
-            
             <div class="col-md-10 p-4 pt-4" style="background-color: #E9EFC0;">
                 <h3>Tambah Referensi <%= name %></h3><hr>
                 <div class="card shadow mb-4">
@@ -62,8 +62,8 @@
                             </tr>
                         </thead> 
                     </table>
-                        <button type="submit" class="btn mb-3" style="margin-left: 83%; background-color: #00AA13; color: #fff;">Simpan</button>
-                        <a href="/detailRef/<%=id%>/<%=name%>" class="btn mb-3" style="background-color: #00AA13; color: #fff;">Kembali</a>
+                    <button type="submit" class="btn mb-3" style="margin-left: 83%; background-color: #00AA13; color: #fff;">Simpan</button>
+                    <a href="/Referensi/<%=id%>/<%=name%>" class="btn mb-3" style="background-color: #00AA13; color: #fff;">Kembali</a>
                 </form>
                 </div>
                 </div>

@@ -4,7 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin</title>
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Logo_Unand.svg/1200px-Logo_Unand.svg.png">
+
+  <title>Daftar RPS</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/9c1321c239.js" crossorigin="anonymous"></script>
@@ -44,73 +46,48 @@
           <div class="card shadow mb-4">
           <div class="card-body">
           <table class="table table-striped table-bordered table-hover">
-                  <thead>
-                    <tr>
-                      <th class="text-center" scope="col">No.</th>
-                      <th class="text-center" scope="col">Nama Mata Kuliah</th>
-                      <th class="text-center" scope="col">Kode Mata Kuliah</th>
-                      <th class="text-center" scope="col">Jumlah SKS</th>
-                      <th class="text-center" scope="col">Semester</th>
-                      <th class="text-center" scope="col">Jumlah Revisi</th>
-                      <th class="text-center" scope="col">Lihat RPS</th>
-                      <th class="text-center" scope="col">Aksi</th> 
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <% RPS.forEach((R, i) => { %>  <!--memanggil data  dan melakukan perulangan-->
-                      <tr>
-                          <th class="text-center" scope="row"><%= i+1 %></th> <!--apabila i=0 maka perhitungan dimulai dari 1-->
-                          <td class="text-center"><%= R.name %></td> 
-                          <td class="text-center"><%= R.code %></td> <!--mengambil data dari course plan yg value nya code-->
-                          <td class="text-center"><%= R.credit %></td>
-                          <td class="text-center"><%= R.semester %></td>  
-                          <td class="text-center"><%= R.rev %></td><!--sks-->
-                          <td class="text-center"><a href="admin_detailrpspweb.html"><i
-                            class="fa-solid fa-eye p-2 text-black rounded" data-toggle="tooltip"
-                            title="Open" style="width :80px; color: #00AA13;"></i></a></td>
-                     
-                            <td class="text-center">
-                              <div class="dropdown">
-                              <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #00AA13; color:white">
-                                Detail
-                              </button>
-                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="/detailAksesDosen/<%= R.id %>/<%= R.name %>">Akses Dosen</a></li>
-                                <li><a class="dropdown-item" href="/detailCPMKdanCPL/<%= R.id %>/<%= R.name %>">CPL-CPMK</a></li>
-                              </ul>
-                            </div>
-                          </td>
-                          <!-- <td class="text-center"><a href="" class="btn" style="background-color: #00AA13; color: #fff;"><i class="fa-solid fa-pen-to-square" data-toggle="tooltip" title="Edit"></i></a></td> -->
-                      </tr>
-                    <% i++} ) %>
-                    <!-- <tr>
-                      <th class="text-center" scope="row">1</th>
-                      <td>Pemrograman Web</td>
-                      <td class="text-center">JSI62125</td>
-                      <td class="text-center">3</td>
-                      <td class="text-center">0</td>
-                      <td class="text-center"><a href="admin_detailrpspweb.html"><i
-                            class="fa-solid fa-eye bg-warning p-2 text-black rounded" data-toggle="tooltip"
-                            title="Open"></i></a></td>
-                     
+            <thead>
+              <tr>
+                <th class="text-center" scope="col">No.</th>
+                <th class="text-center" scope="col">Nama Mata Kuliah</th>
+                <th class="text-center" scope="col">Kode Mata Kuliah</th>
+                <th class="text-center" scope="col">Jumlah SKS</th>
+                <th class="text-center" scope="col">Semester</th>
+                <th class="text-center" scope="col">Jumlah Revisi</th>
+                <th class="text-center" scope="col">Lihat RPS</th>
+                <th class="text-center" scope="col">Aksi</th> 
+              </tr>
+            </thead>
+            <tbody>
+              <% RPS.forEach((R, i) => { %>  
+                <tr>
+                    <th class="text-center" scope="row"><%= i+1 %></th> 
+                    <td class="text-center"><%= R.name %></td> 
+                    <td class="text-center"><%= R.code %></td> 
+                    <td class="text-center"><%= R.credit %></td>
+                    <td class="text-center"><%= R.semester %></td>  
+                    <td class="text-center"><%= R.rev %></td>
+                    <td class="text-center"><a href="admin_detailrpspweb.html"><i
+                      class="fa-solid fa-eye p-2 text-black rounded" data-toggle="tooltip"
+                      title="Open" style="width :80px; color: #00AA13;"></i></a></td>
+               
                       <td class="text-center">
                         <div class="dropdown">
-                          <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton1"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Detail
-                          </button>
-                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="/admin_hak-akses-dosen">Akses Dosen</a></li>
-                            <li><a class="dropdown-item" href="/admin_cpl-cpmk">CPL-CPMK</a></li>
-                            <li><a class="dropdown-item" href="/admin_persentaserps">Persentase RPS</a></li>
-                          </ul>
-                        </div>
-                      </td>
-                    </tr> -->
-                  </tbody>
-                </table>
-                </div>
-                </div>
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #00AA13; color:white">
+                          Detail
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                          <li><a class="dropdown-item" href="/AksesDosen/<%= R.id %>/<%= R.name %>">Akses Dosen</a></li>
+                          <li><a class="dropdown-item" href="/CPMKdanCPL/<%= R.id %>/<%= R.name %>">CPL-CPMK</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                </tr>
+              <% i++} ) %>
+            </tbody>
+          </table>
+        </div>
+      </div>
       </div>
     </div>
   </nav>

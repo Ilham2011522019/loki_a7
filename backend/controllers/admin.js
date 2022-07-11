@@ -5,10 +5,11 @@ const cookieParser = require('cookie-parser')
 
 const controllers = {}
 
-controllers.home = async(req, res) => { // SUDAH BISA
+controllers.home = async(req, res) => {
    const accessToken = req.cookies.accessToken 
     if (!accessToken)
-        return res.status(200).json("tidak ada token")
+    return res.status(200).json("tidak ada token")
+    
     const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
     const id = payload.id
     const nama = payload.nama
@@ -18,15 +19,15 @@ controllers.home = async(req, res) => { // SUDAH BISA
         atribute : ['rev', 'code', 'name', 'credit', 'semester']
     })
     res.render("admin_listrps", {RPS, accessToken, nama, NIP} )
-    // res.json({RPS})
 }
 
-controllers.detailAksesDosen = async (req, res) => { // SUDAH BISA
+controllers.AksesDosen = async (req, res) => {
     const id = req.params.id
     const name = req.params.name
     const accessToken = req.cookies.accessToken 
     if (!accessToken)
-        return res.status(200).json("tidak ada token")
+    return res.status(200).json("tidak ada token")
+    
     const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
     const id_dosen = payload.id
     const nama = payload.nama
@@ -51,7 +52,8 @@ controllers.hlmTambahAksesDosen = async (req, res) => {
     const name = req.params.name
     const accessToken = req.cookies.accessToken 
     if (!accessToken)
-        return res.status(200).json("tidak ada token")
+    return res.status(200).json("tidak ada token")
+    
     const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
     const id_dosen = payload.id
     const nama = payload.nama
@@ -68,7 +70,8 @@ controllers.cekTambahAksesDosen = async (req, res) => {
     const name = req.params.name
     const accessToken = req.cookies.accessToken 
     if (!accessToken)
-        return res.status(200).json("tidak ada token")
+    return res.status(200).json("tidak ada token")
+    
     const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
     const id_dosen = payload.id
     const nama = payload.nama
@@ -85,46 +88,34 @@ controllers.cekTambahAksesDosen = async (req, res) => {
 controllers.tambahAksesDosen = async (req, res) => {
     try {
         const id = req.params.id
-    const idDosen = req.params.idDosen
-    const name = req.params.name
-    const accessToken = req.cookies.accessToken 
-    if (!accessToken)
+        const idDosen = req.params.idDosen
+        const name = req.params.name
+        const accessToken = req.cookies.accessToken 
+        if (!accessToken)
         return res.status(200).json("tidak ada token")
-    const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
-    const id_dosen = payload.id
-    const nama = payload.nama
-    const NIP = payload.NIP
+        
+        const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
+        const id_dosen = payload.id
+        const nama = payload.nama
+        const NIP = payload.NIP
 
     await models.course_plan_lecturers.create({
         course_plan_id : id,
         lecturer_id : idDosen,
         creator : 0
     })
-    res.status(200).redirect("/detailAksesDosen/"+id+"/"+name)
-    } catch (err) {
+    res.status(200).redirect("/AksesDosen/"+id+"/"+name)
+    }
+    catch (err) {
         console.log(err)
     }
-}
-
-controllers.semuaAksesDosen = async (req, res) => {
-    const accessToken = req.cookies.accessToken 
-    if (!accessToken)
-        return res.status(200).json("tidak ada token")
-    const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
-    const id = payload.id
-    const nama = payload.nama
-    const NIP = payload.NIP
-
-    const RPS = await models.course_plans.findAll({
-        atribute : ['rev', 'code', 'name', 'credit', 'semester']
-    })
-    res.render("aksesDosen", {RPS, accessToken, nama, NIP})
 }
 
 controllers.semuaCPMKdanCPL = async (req, res) => {
     const accessToken = req.cookies.accessToken 
     if (!accessToken)
-        return res.status(200).json("tidak ada token")
+    return res.status(200).json("tidak ada token")
+    
     const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
     const id = payload.id
     const nama = payload.nama
@@ -136,12 +127,13 @@ controllers.semuaCPMKdanCPL = async (req, res) => {
     res.render("admin_cpl-cpmk", {RPS, accessToken, nama, NIP})
 }
 
-controllers.detailCPMKdanCPL = async (req, res) => {
+controllers.CPMKdanCPL = async (req, res) => {
     const id = req.params.id
     const name = req.params.name
     const accessToken = req.cookies.accessToken 
     if (!accessToken)
-        return res.status(200).json("tidak ada token")
+    return res.status(200).json("tidak ada token")
+    
     const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
     const id_dosen = payload.id
     const nama = payload.nama
@@ -166,35 +158,14 @@ controllers.detailCPMKdanCPL = async (req, res) => {
             }
         }
     })
-    // res.json({CPL})
     res.render("admin_cetakpetacplcpmk", {CPL,CPMK, accessToken, nama,NIP})
-}
-
-controllers.detailRPS = async (req, res) => {
-    const id = req.params.id
-    const name = req.params.name
-    
-    models.course_los.hasMany(models.course_lo_details, {foreignKey : "id"})
-    models.course_lo_details.belongsTo(models.course_los, {foreignKey : "course_lo_id"})
-    
-    const RPS = await models.course_plans.findOne({
-        where : {id : 2}
-    })
-    const CPL = await models.course_lo_details.findAll({
-        include : {
-            model: models.course_los,
-            where : {
-                course_plan_id : 2
-            }
-        }
-    })
-    res.render("rpspweb", {RPS, CPL})
 }
 
 controllers.persentaseRPS = async (req, res) => {
     const accessToken = req.cookies.accessToken 
     if (!accessToken)
-        return res.status(200).json("tidak ada token")
+    return res.status(200).json("tidak ada token")
+    
     const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
     const id_dosen = payload.id
     const nama = payload.nama
@@ -205,11 +176,9 @@ controllers.persentaseRPS = async (req, res) => {
     const hitung = await models.course_plan_assessments.count({
         where : {flag : 1}
     })
-    // res.json({RPS})
     var c = RPS - hitung
     var project = hitung/RPS*100
     var casee = c/RPS*100
-    // res.json({casee})
     res.render("admin_persentaserps", {nama, NIP, hitung, RPS, project, casee})
 }
 

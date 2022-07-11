@@ -10,10 +10,10 @@ const CekAdmin = (req, res, next) => {
     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => 
     {
         if(err) return res.sendStatus(403);
-            req.id      = decoded.id;
-            req.email   = decoded.email;
-            req.nama    = decoded.nama;
-            req.type    = decoded.type;
+        req.id      = decoded.id;
+        req.email   = decoded.email;
+        req.nama    = decoded.nama;
+        req.type    = decoded.type;
         
         const RPS = models.course_plans.findAll({})
         next();

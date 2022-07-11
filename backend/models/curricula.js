@@ -1,4 +1,3 @@
-//nama kurikulum
 const { Sequelize, DataTypes, err } = require('sequelize');
 const db = require('../config/koneksi.js')
 
@@ -34,13 +33,11 @@ var curricula = db.define('curricula', {
         type : DataTypes.TEXT,
         allownull : true
     },
-    // created_at :Sequelize.DAT    E,
-    // updated_at : Sequelize.DATE
+
 },{
     freezeTableName : true,
     timestamps      : false
 })
 
-// user.removeAttribute('updatedAt', 'createdAt')
 module.exports = curricula
 

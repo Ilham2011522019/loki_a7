@@ -17,44 +17,43 @@
         </div>
     </nav>
     <nav>
-          <div class="row no-gutters mt-5">
-            <div class="col-md-2 mt-2 pr-3 pt-4" style="background-color: #91ca6b;">
-                <ul class="nav flex-column ml-3 mb-5">
-                    <div class="mt-1 mb-2 d-block mx-auto">
-                    </div>
-                    <h6 class="text-center fs-6"><%= nama %></h6>
-                    <h6 class="text-center fs-6">NIP <%= NIP %></h6><hr>
-                    <li class="nav-item">
-                      <a class="nav-link text-black" href="/semuaMatkul">Mata Kuliah</a><hr>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-black" href="/login">Log Out</a><hr>
-                    </li>
-            </div>
-            <div class="col-md-10 p-4 pt-4" style="background-color: #E9EFC0;">
-                <h3>Edit Komponen Penilaian</h3><hr>
-                <div class="container">
-                    <div class="row">
-                      <div class="col-2"><h6>Nama Mata Kuliah</h6></div>
-                      <div class="col-3"><h6>: <%= name %></h6></div>
-                    </div><br>
-                <div class="table shadow mb-4">
-                  <form action="/editKomponen/<%= idEdit %>/<%= id %>/<%= name %>" method="POST">
-                        <table class="table table-bordered" style="background-color: #fff;">
-                          <thead>
-                            <tr>
-                                <th scope="col">Nama Komponen</th>
-                                <th class="text-center"><input value="<%= komponen.name %>" name="name" type="tambahrps" id="inputtambahrps" class="form-control" readonly></th>
-                            </tr>
-                            <tr>
-                                <th scope="col">Persentase</th>
-                                <th class="text-center"><input value="<%= komponen.percentage %>" name="percentage" type="tambahrps" id="inputtambahrps" class="form-control"></th>
-                            </tr>
-                        </thead> 
-                        </table>
+      <div class="row no-gutters mt-5">
+        <div class="col-md-2 mt-2 pr-3 pt-4" style="background-color: #91ca6b;">
+          <ul class="nav flex-column ml-3 mb-5">
+            <div class="mt-1 mb-2 d-block mx-auto"></div>
+            <h6 class="text-center fs-6"><%= nama %></h6>
+            <h6 class="text-center fs-6">NIP <%= NIP %></h6><hr>
+            <li class="nav-item">
+              <a class="nav-link text-black" href="/semuaMatkul">Mata Kuliah</a><hr>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-black" href="/login">Log Out</a><hr>
+            </li>
+        </div>
+        <div class="col-md-10 p-4 pt-4" style="background-color: #E9EFC0;">
+          <h3>Edit Komponen Penilaian</h3><hr>
+            <div class="container">
+              <div class="row">
+                <div class="col-2"><h6>Nama Mata Kuliah</h6></div>
+                <div class="col-3"><h6>: <%= name %></h6></div>
+              </div><br>
+            <div class="table shadow mb-4">
+              <form action="/editPenilaian/<%= idEdit %>/<%= id %>/<%= name %>" method="POST">
+                <table class="table table-bordered" style="background-color: #fff;">
+                  <thead>
+                    <tr>
+                      <th scope="col">Nama Komponen</th>
+                      <th class="text-center"><input value="<%= komponen.name %>" name="name" type="tambahrps" id="inputtambahrps" class="form-control" readonly></th>
+                    </tr>
+                    <tr>
+                      <th scope="col">Persentase</th>
+                      <th class="text-center"><input value="<%= komponen.percentage %>" name="percentage" type="tambahrps" id="inputtambahrps" class="form-control"></th>
+                    </tr>
+                   </thead> 
+                  </table>
                   </div><br>
                     <button type="submit" class="btn" style="margin-left: 86%; background-color: #00AA13; color: #fff;">Edit</button>
-                    <a href="/detailKomponen/<%=id%>/<%=name%>" class="btn" type="button" style="background-color: #00AA13; color: #fff;">Kembali</a>
+                    <a href="/Penilaian/<%=id%>/<%=name%>" class="btn" type="button" style="background-color: #00AA13; color: #fff;">Kembali</a>
               </form>
             </div>
         </div>

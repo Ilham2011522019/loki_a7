@@ -3,10 +3,11 @@ const jwt = require('jsonwebtoken')
 
 const controllers = {}
 
-controllers.hlmTambahRPS = async (req, res) => {
+controllers.hlmntambahMatkul = async (req, res) => {
     const accessToken = req.cookies.accessToken 
     if (!accessToken)
-        return res.status(200).json("tidak ada token")
+    return res.status(200).json("tidak ada token")
+    
     const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
     const id = payload.id
     const nama = payload.nama
@@ -14,13 +15,14 @@ controllers.hlmTambahRPS = async (req, res) => {
     res.render("dosen_tambahmatkul", {nama, NIP})
 }
 
-controllers.hlmRevisiRPS = async (req, res) => {
+controllers.hlmnrevisiMatkul = async (req, res) => {
     const id = req.params.id
     const name = req.params.name
     const idEdit = req.params.idEdit
     const accessToken = req.cookies.accessToken 
     if (!accessToken)
-        return res.status(200).json("tidak ada token")
+    return res.status(200).json("tidak ada token")
+    
     const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
     const id_dosen = payload.id
     const nama = payload.nama
@@ -35,14 +37,14 @@ controllers.hlmRevisiRPS = async (req, res) => {
     
 }
 
-controllers.tambahRPS = async (req, res) => {
+controllers.tambahMatkul = async (req, res) => {
     const RPS = await models.course_plans.findOne({
         where : {
             course_id : req.body.course_id
         }
     })
     if (RPS)
-        return res.status(200).json("Tidak dapat menambahkan RPS yang sudah tersedia")
+    return res.status(200).json("Tidak dapat menambahkan RPS yang sudah tersedia")
     const {course_id, code, name, alias_name, credit, semester, description} = req.body
     try {
         await models.course_plans.create({
@@ -56,44 +58,16 @@ controllers.tambahRPS = async (req, res) => {
             description     : req.body.description
         })
         res.status(200).redirect("/semuaMatkul")
-    } catch (err) {
+    }
+    catch (err) {
         console.log(err);
     }
 }
 
-// controllers.lihatRPS = async (req, res) => {
-    // const authHeader = req.headers['authorization'];
-    // const token = authHeader && authHeader.split(' ')[1];
-    // if(token == null) 
-    //     return res.sendStatus(401);
-        
-    // jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
-    //     if(err) return res.sendStatus(403);
-    //         req.id      = decoded.id;
-    //         req.email   = decoded.email;
-    //         req.nama    = decoded.nama;
-    //         req.type    = decoded.type;
-    // })
-    // const dosenID = req.id
-
-    // const RPS = await models.course_plans.findAll({
-    //     include : [{
-    //         model : models.course_plan_lecturers,
-    //         // as  : 'dosen',
-    //         attribute : [[]],
-    //         where : {
-    //             lecturer_id : dosenID
-    //         }
-    //     }]
-    // })
-   // const RPS = await models.course_plans.findAll({})
-     //res.status(200).json(RPS)
-//}
-
-controllers.lihatRPS = async (req, res) => {
+controllers.lihatMatkul = async (req, res) => {
     const accessToken = req.cookies.accessToken 
     if (!accessToken)
-        res.render("loginDosen")
+    res.render("loginDosen")
     const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
     const id_dosen = payload.id
     const nama = payload.nama
@@ -109,12 +83,12 @@ controllers.lihatRPS = async (req, res) => {
     res.render("dosen_matakuliah", {RPS, nama, NIP})
 }
 
-controllers.revisiRPS = async (req, res) => {
+controllers.revisiMatkul = async (req, res) => {
     try {
         const idEdit = req.params.idEdit
         const accessToken = req.cookies.accessToken 
         if (!accessToken)
-            return res.status(200).json("tidak ada token")
+        return res.status(200).json("tidak ada token")
         const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
         const id_dosen = payload.id
         const nama = payload.nama
@@ -131,7 +105,8 @@ controllers.revisiRPS = async (req, res) => {
             where : {id : req.params.idEdit}
         })
         res.status(200).redirect("/semuaMatkul/"+course_plan_id+"/"+course_plan_name)
-    } catch (err) {
+    }
+    catch (err) {
         console.log(err);
     }
 }

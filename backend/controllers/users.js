@@ -22,7 +22,8 @@ controllers.register = async(req, res) => {
             password: hashPassword,
         });
         res.json({msg: "Register Berhasil"});
-    } catch (error) {
+    }
+    catch (error) {
         console.log(error);
     }
 }

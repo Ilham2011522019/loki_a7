@@ -8,7 +8,8 @@ const controllers = {}
 controllers.matkul = async(req, res) => {
    const accessToken = req.cookies.accessToken 
     if (!accessToken)
-        return res.status(200).json("tidak ada token")
+    return res.status(200).json("tidak ada token")
+    
     const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
     const id = payload.id
     const nama = payload.nama
@@ -16,14 +17,7 @@ controllers.matkul = async(req, res) => {
 
     models.course_plans.hasMany(models.course_plan_lecturers, {foreignKey: "id"})
     models.course_plan_lecturers.belongsTo(models.course_plans, {foreignKey: "course_plan_id"})
-    // const RPS = await models.course_plan_lecturers.findAll({
-    //     where :{
-    //         lecturer_id : id
-    //     },
-    //     include : [
-    //         models.course_plans
-    //     ]
-    // })
+
     const RPS = await models.course_plan_lecturers.findAll({
         where : {
             lecturer_id : id
@@ -35,7 +29,6 @@ controllers.matkul = async(req, res) => {
         }
     })
     res.render("dosen_matakuliah", {RPS, accessToken, nama, NIP} )
-    // res.json({RPS})
 }
 
 module.exports = controllers

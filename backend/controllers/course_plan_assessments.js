@@ -3,12 +3,13 @@ const jwt = require('jsonwebtoken')
 const { json } = require('body-parser')
 const controllers = {}
 
-controllers.hlmTambahKomponen = async (req, res) => {
+controllers.hlmntambahPenilaian = async (req, res) => {
     const name = req.params.name
     const id = req.params.id
     const accessToken = req.cookies.accessToken 
     if (!accessToken)
-        return res.status(200).json("tidak ada token")
+    return res.status(200).json("tidak ada token")
+    
     const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
     const id_dosen = payload.id
     const nama = payload.nama
@@ -16,13 +17,14 @@ controllers.hlmTambahKomponen = async (req, res) => {
     res.render("dosen_tambahpenilaian", {name, nama, NIP, id})
 }
 
-controllers.hlmEditKomponen = async (req, res) => {
+controllers.hlmneditPenilaian = async (req, res) => {
     const id = req.params.id
     const name = req.params.name
     const idEdit = req.params.idEdit
     const accessToken = req.cookies.accessToken 
     if (!accessToken)
-        return res.status(200).json("tidak ada token")
+    return res.status(200).json("tidak ada token")
+    
     const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
     const id_dosen = payload.id
     const nama = payload.nama
@@ -36,12 +38,13 @@ controllers.hlmEditKomponen = async (req, res) => {
     res.render("dosen_editpenilaian", {komponen, idEdit, id, name, nama, NIP})
 }
 
-controllers.editKomponen = async (req, res) => {
+controllers.editPenilaian = async (req, res) => {
     try {
         const idEdit = req.params.idEdit
         const accessToken = req.cookies.accessToken 
         if (!accessToken)
-            return res.status(200).json("tidak ada token")
+        return res.status(200).json("tidak ada token")
+        
         const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
         const id_dosen = payload.id
         const nama = payload.nama
@@ -55,13 +58,14 @@ controllers.editKomponen = async (req, res) => {
         },{
             where : {id : req.params.idEdit}
         })
-        res.status(200).redirect("/detailKomponen/"+id+"/"+name)
-    } catch (err) {
+        res.status(200).redirect("/Penilaian/"+id+"/"+name)
+    }
+    catch (err) {
         console.log(err);
     }
 }
 
-controllers.tambahKomponen = async (req, res) => {
+controllers.tambahPenilaian = async (req, res) => {
     try {
         const id = req.params.id
         const name = req.params.name
@@ -81,17 +85,18 @@ controllers.tambahKomponen = async (req, res) => {
                 flag            : 0
             })
         }
-        res.status(200).redirect("/detailKomponen/"+id+"/"+name)
-    } catch (err) {
+        res.status(200).redirect("/Penilaian/"+id+"/"+name)
+    }
+    catch (err) {
         console.log(err);
         res.json({err})
     }
 }
 
-controllers.detailKomponen = async (req, res) => {
+controllers.Penilaian = async (req, res) => {
     const accessToken = req.cookies.accessToken 
     if (!accessToken)
-        res.render("loginDosen")
+    res.render("loginDosen")
     const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
     const id_dosen = payload.id
     const nama = payload.nama
@@ -107,7 +112,7 @@ controllers.detailKomponen = async (req, res) => {
     res.render("dosen_penilaian", {komponen, name, nama, NIP, id})
 }
 
-controllers.hapusKomponen = async (req, res) => {
+controllers.hapusPenilaian = async (req, res) => {
     try {
         const id = req.params.id
         const name = req.params.name
@@ -116,39 +121,11 @@ controllers.hapusKomponen = async (req, res) => {
                 id   : req.params.idHapus
             }
         })
-        res.status(200).redirect("/detailKomponen/"+id+"/"+name) 
-    } catch (err) {
+        res.status(200).redirect("/Penilaian/"+id+"/"+name) 
+    }
+    catch (err) {
         console.log(err);
     }
-}
-
-controllers.semuaKomponen = async (req, res) => {
-    const accessToken = req.cookies.accessToken 
-    if (!accessToken)
-        res.render("loginDosen")
-    const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
-    const id = payload.id
-    const nama = payload.nama
-    const NIP = payload.NIP
-
-    models.course_plans.hasMany(models.course_plan_assessments, {foreignKey: "id"})
-    models.course_plan_assessments.belongsTo(models.course_plans, {foreignKey: "course_plan_id"})
-    models.course_plans.hasMany(models.course_plan_lecturers, {foreignKey: "id"})
-    models.course_plan_lecturers.belongsTo(models.course_plans, {foreignKey: "course_plan_id"})
-
-    const komponen = await models.course_plan_assessments.findAll({
-        include : [{
-            model : models.course_plans,
-            include : [{
-                model : models.course_plan_lecturers,
-                where : {
-                    lecturer_id : id
-                }
-            }]
-        }]
-    })
-    // res.json({komponen})
-    res.render("semuaKomponen", {komponen, nama, NIP})
 }
 
 module.exports = controllers

@@ -5,11 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon"
-        href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Logo_Unand.svg/1200px-Logo_Unand.svg.png">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Logo_Unand.svg/1200px-Logo_Unand.svg.png">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-    <link rel="icon"
-        href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Logo_Unand.svg/1200px-Logo_Unand.svg.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/beranda.css">
@@ -20,13 +17,11 @@
 <body>
     <div class="logo">
         <img src="https://lp3m.unand.ac.id/webpanel/todakimage/logo.png" alt="">
-        <!-- <img src="https://id.images.search.yahoo.com/yhs/search;_ylt=AwrxguoFI45iQX4AMyT3RQx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3BpdnM-?p=logo+unand&type=fc_ADDA49F0A8D_s58_g_e_d021922_n9998_c24&param1=7&param2=eJwtjEsKgzAQQK8ySwUZJzFGg8foqoiLVFMbjEbUYunpO0J37735jH5om%2B52F0RKGtVm3cJujKkZrxFJYaRk6VnkteBXJlFLVFgRivpqo4sc%2BVfWvS3THL8%2BBJuXSJCcfhniucNygCCkBjho1cBHqxTsugZ3usfkj7wsKiw0JNPrmEMGwU8ORtdPMYX%2BtcXZ5YIEEipTCtQV7PZpN%2F8%2F%2BwGW%2FDuH&hsimp=yhs-2461&hspart=fc&ei=UTF-8&fr=yhs-fc-2461#id=13&iurl=https%3A%2F%2Flp3m.unand.ac.id%2Fwebpanel%2Ftodakimage%2Flogo.png&action=click" alt=""> -->
     </div>
     <a href="/login" class="btn" style="margin-left: 31cm; margin-top: -100px; background-color: #00AA13; color: white;">Log In</a>
     <div class="wrapper" style="background-color: #91ca6b;">
         <h1 style="margin-top: -30px;">SELAMAT DATANG DI RPS UNIVERSITAS ANDALAS</h1>
         <h5 style="margin-top: -10px; text-align: center;">Website Akademik Sistem Informasi Universitas Andalas</h5>
-
     </div>
     <nav>
         <div class="card text-center col-md-10 pt-4 container-fluid">
@@ -34,12 +29,11 @@
             <hr>
             <div class="card-body">
                 <form action="/cari" method="" class="d-flex" role="search">
-                    <input name="cari" class="form-control me-2" type="search" placeholder="Masukkan Nama/Kode Mata Kuliah"
-                        aria-label="Search">
+                    <input name="cari" class="form-control me-2" type="search" placeholder="Masukkan Nama/Kode Mata Kuliah" aria-label="Search">
                     <button class="btn" type="submit" style="background-color: #00AA13; color:white ">Cari</button>
                 </form>
                 <br>
-                <form action="/lihatRPS" method="GET">
+                <form action="/lihatMatkul" method="GET">
                 <table class="table table-striped" id="listrps">
                     <thead>
                         <tr>
@@ -53,41 +47,28 @@
                     </thead>
                     <tbody>
                         <% RPS.forEach((R, i)=> { %>
-                            <tr>
-                                <th scope="row"><%= i+1 %></th>
-                                <td><%= R.code %></td>
-                                <td><%= R.name %></td>
-                                <td><%= R.credit %></td>
-                                <td><%= R.semester %></td>
-                                <td><a href="admin_detailrpspweb.html" class="btn btn-secondary">Lihat</a></td>
-                            </tr>
-                            <% }) %>
+                        <tr>
+                            <th scope="row"><%= i+1 %></th>
+                            <td><%= R.code %></td>
+                            <td><%= R.name %></td>
+                            <td><%= R.credit %></td>
+                            <td><%= R.semester %></td>
+                            <td><a href="admin_detailrpspweb.html" class="btn btn-secondary">Lihat</a></td>
+                        </tr>
+                        <% }) %>
                     </tbody>
                 </table>
-                </form>                
+            </form>                
             </div>
             <div class="card-footer text-muted">
-                RPS Universitas Andalas
+            RPS Universitas Andalas
             </div>
         </div>
     </nav>
-
     </tbody>
     </table>
     </form>
     <br></br>
-    <!-- <p align="center"><input type="button" class="btn-primary" onclick="myPrint('listrps')" value ="Print"></p>
-    <script>
-      function myPrint(listrps){
-        var printdata = document.getElementById(listrps)
-        newwin = window.open("");
-        newwin.document.write(printdata.outerHTML);
-        newwin.print();
-        newwin.close();
-      }
-    
-    </script> -->
-
 </body>
 
 </html>

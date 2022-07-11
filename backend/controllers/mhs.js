@@ -28,7 +28,6 @@ controllers.cari = async (req, res) => {
         }
     })
     res.render("beranda_awal", {RPS}) 
-    // res.json({RPS})
 }
 
 module.exports = controllers

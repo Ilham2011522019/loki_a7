@@ -19,7 +19,7 @@ controllers.tambahMatkul = async (req, res) => {
         }
     })
     if (matkul)
-        return res.status(200).json("Tidak dapat menambahkan mata kuliah yang telah tersedia")
+    return res.status(200).json("Tidak dapat menambahkan mata kuliah yang telah tersedia")
     const {course_id, code, name, alias_name, credit, semester, description} = req.body
     try {
         await models.courses.create({
@@ -33,7 +33,8 @@ controllers.tambahMatkul = async (req, res) => {
                 description     : description
         })
         res.json({msg: "Telah berhasil menambahkan Mata Kuliah"});
-    }catch (err) {
+    }
+    catch (err) {
         console.log(err);
     }
 } 

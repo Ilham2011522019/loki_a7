@@ -1,4 +1,3 @@
-//mata kuliah
 'use strict'
 const { Sequelize, DataTypes, err } = require('sequelize');
 const db = require('../config/koneksi.js')
@@ -26,12 +25,10 @@ var courses = db.define('courses', {
     name        : Sequelize.TEXT,
     credit      : Sequelize.INTEGER,
     semester    : Sequelize.INTEGER,
-    // created_at :Sequelize.DATE,
-    // updated_at : Sequelize.DATE
+
 },{
     freezeTableName : true,
     timestamps      : false
 })
 
-// user.removeAttribute('updatedAt', 'createdAt')
 module.exports = courses

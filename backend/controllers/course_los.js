@@ -2,10 +2,10 @@ const models = require('../models/index')
 const jwt = require('jsonwebtoken')
 const controllers = {}
 
-controllers.detailCPMK = async (req, res) => {
+controllers.CPMK = async (req, res) => {
     const accessToken = req.cookies.accessToken 
     if (!accessToken)
-        res.render("loginDosen")
+    res.render("loginDosen")
     const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
     const id_dosen = payload.id
     const nama = payload.nama
@@ -21,12 +21,13 @@ controllers.detailCPMK = async (req, res) => {
     res.render("dosen_cpmk", {CPMK, name, id, nama, NIP})
 }
 
-controllers.hlmTambahCPMK = async (req, res) => {
+controllers.hlmntambahCPMK = async (req, res) => {
     const id = req.params.id
     const name = req.params.name
     const accessToken = req.cookies.accessToken 
     if (!accessToken)
-        return res.status(200).json("tidak ada token")
+    return res.status(200).json("tidak ada token")
+    
     const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
     const id_dosen = payload.id
     const nama = payload.nama
@@ -40,7 +41,8 @@ controllers.hlmTambahCPLkeCPMK = async (req, res) => {
     const name = req.params.name
     const accessToken = req.cookies.accessToken 
     if (!accessToken)
-        return res.status(200).json("tidak ada token")
+    return res.status(200).json("tidak ada token")
+    
     const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
     const id_dosen = payload.id
     const nama = payload.nama
@@ -48,13 +50,14 @@ controllers.hlmTambahCPLkeCPMK = async (req, res) => {
     res.render("tambahCPLkeCPMK", {id, idTerakhir, name, nama, NIP})
 }
 
-controllers.hlmEditCPMK = async (req, res) => {
+controllers.hlmneditCPMK = async (req, res) => {
     const id = req.params.id
     const name = req.params.name
     const idEdit = req.params.idEdit
     const accessToken = req.cookies.accessToken 
     if (!accessToken)
-        return res.status(200).json("tidak ada token")
+    return res.status(200).json("tidak ada token")
+    
     const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
     const id_dosen = payload.id
     const nama = payload.nama
@@ -75,7 +78,8 @@ controllers.tambahCPMK = async (req, res) => {
         const name = req.params.name
         const accessToken = req.cookies.accessToken 
         if (!accessToken)
-            return res.status(200).json("tidak ada token")
+        return res.status(200).json("tidak ada token")
+        
         const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
         const id_dosen = payload.id
         const nama = payload.nama
@@ -92,9 +96,9 @@ controllers.tambahCPMK = async (req, res) => {
             course_lo_id        : idTerakhir+1
         })
         
-        res.status(200).redirect("/detailCPMK/"+id+"/"+name)
-        // res.render("tambahCPLkeCPMK", {idTerakhir, id, name, nama, NIP})
-    } catch (err) {
+        res.status(200).redirect("/CPMK/"+id+"/"+name)
+    }
+    catch (err) {
         console.log(err);
     }
 }
@@ -107,7 +111,8 @@ controllers.tambahCPLkeCPMK = async (req, res) => {
         const idTerbaru = idTerakhir +1
         const accessToken = req.cookies.accessToken
         if (!accessToken)
-            return res.status(200).json("tidak ada token")
+        return res.status(200).json("tidak ada token")
+        
         const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
         const id_dosen = payload.id
         const nama = payload.nama
@@ -117,8 +122,9 @@ controllers.tambahCPLkeCPMK = async (req, res) => {
             curriculum_lo_id    : req.body.curriculum_lo_id,
             course_lo_id        : req.params.idtambah
         })
-        res.status(200).redirect("/detailCPMK/"+id+"/"+name) 
-    } catch (err) {
+        res.status(200).redirect("/CPMK/"+id+"/"+name) 
+    }
+    catch (err) {
         console.log(err)
     }
 }
@@ -128,7 +134,8 @@ controllers.editCPMK = async (req, res) => {
         const idEdit = req.params.idEdit
         const accessToken = req.cookies.accessToken 
         if (!accessToken)
-            return res.status(200).json("tidak ada token")
+        return res.status(200).json("tidak ada token")
+        
         const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
         const id_dosen = payload.id
         const nama = payload.nama
@@ -142,8 +149,9 @@ controllers.editCPMK = async (req, res) => {
         },{
             where : {id : req.params.idEdit}
         })
-        res.status(200).redirect("/detailCPMK/"+id+"/"+name)
-    } catch (err) {
+        res.status(200).redirect("/CPMK/"+id+"/"+name)
+    }
+    catch (err) {
         console.log(err);
     }
 }
@@ -157,39 +165,11 @@ controllers.hapusCPMK = async (req, res) => {
                 id   : req.params.idHapus
             }
         })
-        res.status(200).redirect("/detailCPMK/"+id+"/"+name) 
-    } catch (err) {
+        res.status(200).redirect("/CPMK/"+id+"/"+name) 
+    }
+    catch (err) {
         console.log(err);
     }
-}
-
-controllers.semuaCPMK = async (req, res) => {
-    const accessToken = req.cookies.accessToken 
-    if (!accessToken)
-        res.render("loginDosen")
-    const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
-    const id = payload.id
-    const nama = payload.nama
-    const NIP = payload.NIP
-
-    models.course_plans.hasMany(models.course_los, {foreignKey: "id"})
-    models.course_los.belongsTo(models.course_plans, {foreignKey: "course_plan_id"})
-    models.course_plans.hasMany(models.course_plan_lecturers, {foreignKey: "id"})
-    models.course_plan_lecturers.belongsTo(models.course_plans, {foreignKey: "course_plan_id"})
-
-    const CPMK = await models.course_los.findAll({
-        include : [{
-            model : models.course_plans,
-            include : [{
-                model : models.course_plan_lecturers,
-                where : {
-                    lecturer_id : id
-                }
-            }]
-        }]
-    })
-    // res.json({komponen})
-    res.render("semuaCPMK", {CPMK, nama, NIP})
 }
 
 module.exports = controllers
